@@ -19,7 +19,7 @@ const LoginForm = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch("http://3.27.151.169/login", {
+      const response = await fetch("http://3.27.151.169:8000/login", {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ usn: username, pwd: password }),

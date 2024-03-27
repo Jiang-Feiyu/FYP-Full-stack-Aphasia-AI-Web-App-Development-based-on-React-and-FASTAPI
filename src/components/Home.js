@@ -53,6 +53,7 @@ function Home() {
   };
 
   return (
+    
     <div className="background" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className="content-box">
         <h2>Welcome to AI speech recognition system</h2>

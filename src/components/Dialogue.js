@@ -68,7 +68,7 @@ const Dialogue = ({ username }) => {
     formData.append('file', file);
 
     try {
-      const response = await fetch('http://3.27.151.169/upload', {
+      const response = await fetch('http://3.27.151.169:8000/upload', {
         method: 'POST',
         body: formData,
       });
@@ -90,6 +90,7 @@ const Dialogue = ({ username }) => {
 
   return (
     <div>
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
       <h2>Drag and drop your files in the Chatbox</h2>
       <div className="dialogue-wrapper">
         <div
