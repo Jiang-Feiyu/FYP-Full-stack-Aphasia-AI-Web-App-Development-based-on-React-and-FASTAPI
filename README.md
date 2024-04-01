@@ -1,70 +1,67 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Setup an EC2
+```
+Spin up a new EC2 machine
 
-## Available Scripts
+Install dependencies on EC2 machine
 
-In the project directory, you can run:
+Setting up the inbound and outbound rules
 
-### `npm start`
+Setting up GitHub on EC2
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Creating Jobs to host your app Launching and testing your app
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Setup environment
+```
+sudo apt install nodejs
 
-### `npm test`
+sudo apt-get update
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+clone the frontend code from Github
 
-### `npm run build`
+npm install react-scripts
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+npm install react-router-dom --save
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Setup Nginx
+```
+sudo apt install nginx
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+to check: sudo systemctl status nginx.service
+```
+<img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6f2cd7d31dd34fec89bd0b767d489634~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1346&h=328&s=91673&e=png&b=010101" alt="螢幕截圖 2024-03-27 下午9.28.29.png" width="70%" />
 
-### `npm run eject`
+配置文件：
+```
+sudo vi my-app.conf
+```
+my-app.conf：
+```
+server{
+        listen 80;
+        listen [::]:80;
+        server_name ;
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+        location / {
+                #include /etc/nginx/sites-enabled/*;
+                proxy_pass http://localhost:3000;
+        }
+}
+```
+关联系统配置文件
+```
+sudo ln /home/ubuntu/FYP-Full-stack-Aphasia-AI-Web-App-Development-based-on-React-and-FASTAPI/my-app.conf /etc/nginx/sites-enabled/ [-f如果源文件存在需要覆盖]
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+sudo nginx -t
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+sudo systemctl restart nginx.service
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Setup Inbound rules
+Edit security -> Inbound rules
+<img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0ce21303d1b445e9bcc1fed533cf3c4f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1285&h=315&s=56634&e=png&b=fdfdfd" alt="螢幕截圖 2024-03-27 下午9.40.13.png" width="70%" />
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 运行
+`npm run build`
