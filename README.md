@@ -1,3 +1,5 @@
+# React-frontend
+For the full stack code, please refer to: https://github.com/Jiang-Feiyu/Development-of-a-Full-stack-Aphasia-AI-Web-App-based-on-React-FASTAPI
 
 ## Setup an EC2
 ```
