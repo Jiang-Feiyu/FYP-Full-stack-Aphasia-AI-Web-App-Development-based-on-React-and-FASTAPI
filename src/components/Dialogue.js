@@ -90,7 +90,6 @@ const Dialogue = ({ username }) => {
 
   return (
     <div>
-      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
       <h2>Drag and drop your files in the Chatbox</h2>
       <div className="dialogue-wrapper">
         <div
