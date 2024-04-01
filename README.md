@@ -31,7 +31,7 @@ sudo apt install nginx
 
 to check: sudo systemctl status nginx.service
 ```
-<img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6f2cd7d31dd34fec89bd0b767d489634~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1346&h=328&s=91673&e=png&b=010101" alt="螢幕截圖 2024-03-27 下午9.28.29.png" width="70%" />
+<img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6f2cd7d31dd34fec89bd0b767d489634~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1346&h=328&s=91673&e=png&b=010101" alt="螢幕截圖 2024-03-27 下午9.28.29.png" width="90%" />
 
 配置文件：
 ```
@@ -61,7 +61,8 @@ sudo systemctl restart nginx.service
 
 ## Setup Inbound rules
 Edit security -> Inbound rules
-<img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0ce21303d1b445e9bcc1fed533cf3c4f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1285&h=315&s=56634&e=png&b=fdfdfd" alt="螢幕截圖 2024-03-27 下午9.40.13.png" width="70%" />
+
+<img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0ce21303d1b445e9bcc1fed533cf3c4f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1285&h=315&s=56634&e=png&b=fdfdfd" alt="螢幕截圖 2024-03-27 下午9.40.13.png" width="90%" />
 
 ## 运行
 `npm run build`
